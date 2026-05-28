@@ -7,6 +7,6 @@ fun main() {
     println("$start-$finish;$step")
     start = "D2"
     finish = "D3"
-    step = 2
+    step++
     println("$start-$finish;$step")
 }
