@@ -1,7 +1,6 @@
 package lesson_4
 
 const val AIR_HUMIDITY = 20
-const val WINTER_SEASON = "зима"
 
 fun main() {
     val isSunnyWeather = true
@@ -10,5 +9,5 @@ fun main() {
     val timeOfYear = "зима"
 
     println("Благоприятные ли сейчас условия для роста бобовых? " +
-            "${isSunnyWeather && isAwningOpen && airHumidity == AIR_HUMIDITY && timeOfYear != WINTER_SEASON}")
+            "${isSunnyWeather && isAwningOpen && airHumidity == AIR_HUMIDITY && timeOfYear != "зима"}")
 }
