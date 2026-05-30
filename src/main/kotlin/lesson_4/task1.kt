@@ -1,9 +1,18 @@
 package lesson_4
 
-const val ALL_TABLES = 13
-
 fun main() {
-    val tableReservationToday = 13
-    val tableReservationTomorrow = 9
-    println("[Доступность столиков на сегодня: ${tableReservationToday < ALL_TABLES}],\n[Доступность столиков на завтра: ${tableReservationTomorrow < ALL_TABLES}]")
+    val trainingDay = 5
+    val isSecondGroupTraining = trainingDay % 2 == 0
+
+    val handsAndPress = !isSecondGroupTraining
+    val legsAndBack = isSecondGroupTraining
+
+    println(
+        """
+        Упражнения для рук: $handsAndPress
+        Упражнения для ног: $legsAndBack
+        Упражнения для спины: $legsAndBack
+        Упражнения для пресса: $handsAndPress
+    """.trimIndent()
+    )
 }
