@@ -9,6 +9,8 @@ fun main() {
     val firstCargoVolume = 80
     val secondCargoWeight = 50
     val secondCargoVolume = 100
-    println("Груз с весом $firstCargoWeight кг и объемом $firstCargoVolume л соответствует категории 'Average': ${firstCargoWeight > LOWER_THRESHOLD && firstCargoWeight <= UPPER_THRESHOLD && firstCargoVolume < MAX_VOLUME}")
-    println("Груз с весом $secondCargoWeight кг и объемом $secondCargoVolume л соответствует категории 'Average': ${secondCargoWeight > LOWER_THRESHOLD && secondCargoWeight <= UPPER_THRESHOLD && secondCargoVolume < MAX_VOLUME}")
+    println("Груз с весом $firstCargoWeight кг и объемом $firstCargoVolume л соответствует категории 'Average':" +
+            " ${firstCargoWeight > LOWER_THRESHOLD && firstCargoWeight <= UPPER_THRESHOLD && firstCargoVolume < MAX_VOLUME}")
+    println("Груз с весом $secondCargoWeight кг и объемом $secondCargoVolume л соответствует категории 'Average': " +
+            "${secondCargoWeight > LOWER_THRESHOLD && secondCargoWeight <= UPPER_THRESHOLD && secondCargoVolume < MAX_VOLUME}")
 }
