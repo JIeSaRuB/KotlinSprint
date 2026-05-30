@@ -8,5 +8,6 @@ fun main() {
     val airHumidity = 20
     val timeOfYear = "зима"
 
-    println("Благоприятные ли сейчас условия для роста бобовых? ${isSunnyWeather && isAwningOpen && airHumidity == AIR_HUMIDITY && timeOfYear != "зима"}")
+    println("Благоприятные ли сейчас условия для роста бобовых? " +
+            "${isSunnyWeather && isAwningOpen && airHumidity == AIR_HUMIDITY && timeOfYear != "зима"}")
 }
