@@ -1,8 +1,8 @@
 package lesson_4
 
-const val minCrew = 55
-const val maxCrew = 70
-const val minSuppliesCount = 50
+const val MIN_CREW = 55
+const val MAX_CREW = 70
+const val MIN_SUPPLIES_COUNT = 50
 
 fun main() {
     println("Введите наличие повреждений корпуса (true/false):")
@@ -17,8 +17,8 @@ fun main() {
     println("Введите благоприятность погоды (true/false):")
     val isWeatherFavorable = readln().toBoolean()
 
-    val canDepart = (!hasDamage && crewSize in minCrew..maxCrew && suppliesCount > minSuppliesCount) ||
-            (hasDamage && crewSize == maxCrew && isWeatherFavorable && suppliesCount >= minSuppliesCount)
+    val canDepart = (!hasDamage && crewSize in MIN_CREW..MAX_CREW && suppliesCount > MIN_SUPPLIES_COUNT) ||
+            (hasDamage && crewSize == MAX_CREW && isWeatherFavorable && suppliesCount >= MIN_SUPPLIES_COUNT)
 
     println(if (canDepart) "Корабль может отправиться в плавание." else "Корабль не может отправиться в плавание.")
 }
