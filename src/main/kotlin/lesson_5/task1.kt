@@ -1,14 +1,11 @@
 package lesson_5
 
 fun main() {
-    println("Введите ответ на пример: 2 + 5")
-    val personsAnswer = readln().toIntOrNull()
+    val firstNumber = (1..10).random()
+    val secondNumber = (1..10).random()
+    println("Введите ответ на пример: $firstNumber + $secondNumber")
+    val personsAnswer = readln().toInt()
 
-    personsAnswer?.let {
-        if (personsAnswer == 7) {
-            println("Добро пожаловать!")
-        } else {
-            println("Доступ запрещен.")
-        }
-    }
+    if (personsAnswer == firstNumber + secondNumber) println("Добро пожаловать!")
+    else println("Доступ запрещен.")
 }
