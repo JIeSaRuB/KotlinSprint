@@ -8,5 +8,6 @@ fun main() {
         Thread.sleep(1000)
         secondsCount--
     }
+
     println("Время вышло")
 }
