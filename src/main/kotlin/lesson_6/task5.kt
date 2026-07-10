@@ -2,7 +2,7 @@ package lesson_6
 
 fun main() {
     var tries = 3
-    while (true) {
+    while (tries > 0) {
         val firstNumber = (1..9).random()
         val secondNumber = (1..9).random()
         println("Решите следующий пример: $firstNumber + $secondNumber")
@@ -14,10 +14,10 @@ fun main() {
         }
         else {
             println("Неверно. Осталось попыток: ${--tries}")
+            continue
         }
-        if (tries == 0) {
-            println("Доступ запрещён")
-            break
-        }
+    }
+    if (tries == 0) {
+        println("Доступ запрещен")
     }
 }
