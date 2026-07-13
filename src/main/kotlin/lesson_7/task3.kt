@@ -7,4 +7,5 @@ fun main() {
     for (num in 0..finishNumber step 2) {
         println(num)
     }
+
 }
