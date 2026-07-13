@@ -2,7 +2,13 @@ package lesson_7
 
 fun main() {
     print("Введите длину пароля: ")
-    val passwordLength = readln().toInt()
+    var passwordLength = readln().toInt()
+    if (passwordLength < 6) {
+        do {
+            print("Введите длину пароля: ")
+            passwordLength = readln().toInt()
+        } while (passwordLength < 6)
+    }
     var resultPassword = ""
     for (item in (1..passwordLength)) {
         when (item % 3) {
