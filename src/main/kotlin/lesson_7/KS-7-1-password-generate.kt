@@ -1,10 +1,14 @@
 package lesson_7
 
 fun main() {
-    val passwordItems = ('a'..'z') + ('0'..'9')
+    val lettersForPassword = ('a'..'z')
+    val numbersForPassword = ('0'..'9')
+
     var resultPassword = ""
-    for (count in 1..6) {
-        resultPassword += passwordItems.random()
+
+    for (counter in 1..6) {
+        if (counter % 2 == 1) resultPassword += lettersForPassword.random()
+        else resultPassword += numbersForPassword.random()
     }
     println(resultPassword)
 }
