@@ -1,6 +1,5 @@
 package lesson_7
 
-
 fun main() {
     print("Введите число: ")
     val finishNumber = readln().toInt()
