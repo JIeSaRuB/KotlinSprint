@@ -17,5 +17,6 @@ fun main() {
             2 -> resultPassword += ('0'..'9').random()
         }
     }
-    println(resultPassword)
+    println("Ваш пароль: ${resultPassword.toList().shuffled().joinToString("")}")
+
 }
