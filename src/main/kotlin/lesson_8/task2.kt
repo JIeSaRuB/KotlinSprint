@@ -7,8 +7,9 @@ fun main() {
     var flag = false
     for (ingredient in ingredients) {
         if (ingredient == searchItem) {
-            println("Игредиент $ingredient в рецепте есть")
+            println("Ингредиент $ingredient в рецепте есть")
             flag = true
+            break
         }
     }
     if (!flag) {
