@@ -6,4 +6,5 @@ fun main() {
         viewsArray[day] = (100..10000).random()
     }
     println("Всего просмотров за неделю: ${viewsArray.sum()}")
+
 }
