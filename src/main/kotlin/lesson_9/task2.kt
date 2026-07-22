@@ -1,7 +1,7 @@
 package lesson_9
 
 fun main() {
-    val ingredients = mutableListOf("лапша", "сливки", "сыр", "бекон")
+    val ingredients = mutableListOf("лапша", "сливки", "сыр")
     println("В рецепте есть базовые ингредиенты: $ingredients")
     print("Желаете добавить ещё? ")
     val answer = readln()
