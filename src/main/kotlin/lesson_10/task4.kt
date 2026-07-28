@@ -15,9 +15,14 @@ fun roundBlock(): String {
 
 fun main() {
     var answer: String
+    var counter = 0
+    var result: String
     do {
-        println(roundBlock())
+        result = roundBlock()
+        if (result == "Победило человечество") counter++
+        println(result)
         println("Хотите бросить кости еще раз? Введите Да или Нет")
         answer = readln()
     } while (answer == "Да")
+    println("Вы выиграли раундов: $counter")
 }
