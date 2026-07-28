@@ -18,17 +18,13 @@ fun createAuthorizationToken(login: String, password: String): String? {
     else return null
 }
 
-fun getBasket(token: String): Array<String> {
-    val goods = arrayOf("Лапша", "Помидор", "Сливки", "Бекон", "Сыр")
+fun getBasket(token: String): List<String> {
+    val goods = listOf("Лапша", "Помидор", "Сливки", "Бекон", "Сыр")
     return goods
 }
 
 fun main() {
-    print("Введите логин: ")
-    val userLogin = readln()
-    print("Введите пароль: ")
-    val userPassword = readln()
-    val token = createAuthorizationToken(userLogin, userPassword)
+    val token = createAuthorizationToken(LOGIN, PASSWORD)
     if (token != null) {
         for (good in getBasket(token)) {
             println(good)
