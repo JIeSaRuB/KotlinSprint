@@ -25,6 +25,7 @@ class User2 {
         }
         return "Текущий пароль введён неверно\n"
     }
+
 }
 
 fun main() {
