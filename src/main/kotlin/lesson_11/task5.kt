@@ -1,23 +1,20 @@
 package lesson_11
 
 class Forum() {
-    val userList = mutableListOf<ForumParticipant.ForumParticipantBuilder>()
-    val messageList = mutableListOf<ForumMessage.ForumMessageBuilder>()
+    val userList = mutableListOf<ForumParticipant>()
+    val messageList = mutableListOf<ForumMessage>()
     var nextUserId = 1
-    fun createNewUser(userName: String): ForumParticipant.ForumParticipantBuilder {
-        val participant = ForumParticipant.ForumParticipantBuilder()
-        participant.setUserId(nextUserId)
-        participant.setUserName(userName)
+    fun createNewUser(userName: String): ForumParticipant {
+        val participant = ForumParticipant(userId = nextUserId, userName = userName)
+        nextUserId++
         userList.add(participant)
         return participant
     }
 
     fun createNewMessage(userId: Int) {
-        if (userId < nextUserId) {
-            val forumMessage = ForumMessage.ForumMessageBuilder()
-            forumMessage.authorId = userId
-            print("Пользователь с ID = ${forumMessage.authorId}, введите сообщение: ")
-            forumMessage.message = readln()
+        if (userList.find { it.userId == userId } in userList) {
+            print("Пользователь с ID = ${userId}, введите сообщение: ")
+            val forumMessage = ForumMessage(authorId = userId, message = readln())
             messageList.add(forumMessage)
         } else println("Пользователя с таким ID не существует")
     }
@@ -26,7 +23,7 @@ class Forum() {
         for (msg in messageList) {
             var printUserName = ""
             for (user in userList) {
-                if (msg.authorId == user.getUserId()) {
+                if (msg.authorId == user.userId) {
                     printUserName = user.userName
                 }
             }
@@ -36,21 +33,11 @@ class Forum() {
 }
 
 class ForumParticipant(userId: Int, userName: String) {
+    var userId = userId
+    var userName = userName
     class ForumParticipantBuilder {
         var userId = 0
         var userName = ""
-        fun setUserId(_userId: Int) {
-            val userId = _userId
-        }
-        fun setUserName(_userName: String) {
-            val userName = _userName
-        }
-        fun getUserId(): Int {
-            return userId
-        }
-        fun getUserName(): String {
-            return userName
-        }
         fun build(): ForumParticipant {
             return ForumParticipant(userId, userName)
         }
@@ -58,21 +45,11 @@ class ForumParticipant(userId: Int, userName: String) {
 }
 
 class ForumMessage(authorId: Int, message: String) {
+    var authorId = authorId
+    var message = message
     class ForumMessageBuilder {
         var authorId = 0
         var message = ""
-        fun setAuthorId(_authorId: Int) {
-            authorId = _authorId
-        }
-        fun setMessage(_message: String) {
-            message = _message
-        }
-        fun getUserId(): Int {
-            return authorId
-        }
-        fun getMessage(): String {
-            return message
-        }
         fun build(): ForumMessage {
             return ForumMessage(authorId, message)
         }
@@ -88,4 +65,5 @@ fun main() {
     forum.createNewMessage(1)
     forum.createNewMessage(2)
     forum.printThread()
+
 }
