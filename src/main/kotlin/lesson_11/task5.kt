@@ -11,10 +11,9 @@ class Forum() {
         return participant
     }
 
-    fun createNewMessage(userId: Int) {
+    fun createNewMessage(userId: Int, message: String) {
         if (userList.find { it.userId == userId } in userList) {
-            print("Пользователь с ID = ${userId}, введите сообщение: ")
-            val forumMessage = ForumMessage.ForumMessageBuilder(authorId = userId, message = readln()).build()
+            val forumMessage = ForumMessage.ForumMessageBuilder(authorId = userId, message = message).build()
             messageList.add(forumMessage)
         } else println("Пользователя с таким ID не существует")
     }
@@ -60,9 +59,9 @@ fun main() {
     val forum = Forum()
     forum.createNewUser("Alex")
     forum.createNewUser("SecondAlex")
-    forum.createNewMessage(1)
-    forum.createNewMessage(2)
-    forum.createNewMessage(1)
-    forum.createNewMessage(2)
+    forum.createNewMessage(1, "Привет, мир!")
+    forum.createNewMessage(2, "Hello, world!")
+    forum.createNewMessage(1, "Bonjour le monde")
+    forum.createNewMessage(2, "Hallo Welt")
     forum.printThread()
 }
