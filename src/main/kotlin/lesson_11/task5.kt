@@ -5,7 +5,7 @@ class Forum() {
     val messageList = mutableListOf<ForumMessage>()
     var nextUserId = 1
     fun createNewUser(userName: String): ForumParticipant {
-        val participant = ForumParticipant(userId = nextUserId, userName = userName)
+        val participant = ForumParticipant.ForumParticipantBuilder(userName = userName, userId = nextUserId).build()
         nextUserId++
         userList.add(participant)
         return participant
@@ -14,7 +14,7 @@ class Forum() {
     fun createNewMessage(userId: Int) {
         if (userList.find { it.userId == userId } in userList) {
             print("Пользователь с ID = ${userId}, введите сообщение: ")
-            val forumMessage = ForumMessage(authorId = userId, message = readln())
+            val forumMessage = ForumMessage.ForumMessageBuilder(authorId = userId, message = readln()).build()
             messageList.add(forumMessage)
         } else println("Пользователя с таким ID не существует")
     }
@@ -35,9 +35,9 @@ class Forum() {
 class ForumParticipant(userId: Int, userName: String) {
     var userId = userId
     var userName = userName
-    class ForumParticipantBuilder {
-        var userId = 0
-        var userName = ""
+    class ForumParticipantBuilder(userId: Int, userName: String) {
+        var userId = userId
+        var userName = userName
         fun build(): ForumParticipant {
             return ForumParticipant(userId, userName)
         }
@@ -47,9 +47,9 @@ class ForumParticipant(userId: Int, userName: String) {
 class ForumMessage(authorId: Int, message: String) {
     var authorId = authorId
     var message = message
-    class ForumMessageBuilder {
-        var authorId = 0
-        var message = ""
+    class ForumMessageBuilder(authorId: Int, message: String) {
+        var authorId = authorId
+        var message = message
         fun build(): ForumMessage {
             return ForumMessage(authorId, message)
         }
@@ -65,5 +65,4 @@ fun main() {
     forum.createNewMessage(1)
     forum.createNewMessage(2)
     forum.printThread()
-
 }
